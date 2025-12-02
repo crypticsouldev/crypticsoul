@@ -101,13 +101,13 @@
     left: 2px;
     text-shadow: -1px 0 var(--color-alert);
     clip-path: inset(24px 0 30px 0); 
-    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+    animation: glitch-anim-2 1.5s infinite linear alternate-reverse;
   }
   .glitch-wrapper::after {
     left: -2px;
     text-shadow: -1px 0 var(--color-neon);
     clip-path: inset(85px 0 10px 0);
-    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+    animation: glitch-anim 1.25s infinite linear alternate-reverse;
   }
 
   /* neon border utility */

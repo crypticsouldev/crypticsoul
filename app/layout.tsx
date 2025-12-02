@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Fira_Code } from "next/font/google";
 import "./globals.css";
 
@@ -22,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${firaCode.variable} antialiased bg-void text-white`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
