@@ -1,26 +1,174 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #030303;
+  --foreground: #e2e8f0;
+  
+  /* custom palette variables */
+  --color-void: #030303;
+  --color-terminal: #0f0f0f;
+  --color-neon: #00ff41;
+  --color-cyber: #bf00ff;
+  --color-alert: #ff003c;
+  --color-dim: #4a5568;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  
+  --font-mono: var(--font-fira-code), monospace;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-void: #030303;
+  --color-terminal: #0f0f0f;
+  --color-neon: #00ff41;
+  --color-cyber: #bf00ff;
+  --color-alert: #ff003c;
+  --color-dim: #4a5568;
+
+  /* register animations */
+  --animate-pulse-fast: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-glitch: glitch 1s linear infinite;
+  --animate-scanline: scanline 10s linear infinite;
+  --animate-blink: blink 1s step-end infinite;
+
+  @keyframes glitch {
+    2%, 64% { transform: translate(2px,0) skew(0deg); }
+    4%, 60% { transform: translate(-2px,0) skew(0deg); }
+    62% { transform: translate(0,0) skew(5deg); }
+  }
+
+  @keyframes scanline {
+    0% { bottom: 100%; }
+    100% { bottom: -100px; }
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 }
 
+/* utilities layer:
+   
+*/
+@layer utilities {
+  .scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 50;
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0, 255, 65, 0.04) 50%, rgba(0,0,0,0) 100%);
+    opacity: 0.1;
+    position: fixed;
+    bottom: 100%;
+    animation: scanline 10s linear infinite;
+    pointer-events: none;
+  }
+
+  .crt-overlay {
+    background: rgba(18, 16, 16, 0.1);
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 49;
+    pointer-events: none;
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.9);
+  }
+
+  .crt-lines {
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 49;
+    pointer-events: none;
+  }
+
+  /* glitch wrapper */
+  .glitch-wrapper {
+    position: relative;
+  }
+  .glitch-wrapper::before,
+  .glitch-wrapper::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-void);
+  }
+  .glitch-wrapper::before {
+    left: 2px;
+    text-shadow: -1px 0 var(--color-alert);
+    clip-path: inset(24px 0 30px 0); 
+    animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  }
+  .glitch-wrapper::after {
+    left: -2px;
+    text-shadow: -1px 0 var(--color-neon);
+    clip-path: inset(85px 0 10px 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+  }
+
+  /* neon border utility */
+  .neon-border {
+    box-shadow: 0 0 5px var(--color-neon), inset 0 0 5px var(--color-neon);
+  }
+
+  /* alternate neon border in cyber purple (used in projects, etc.) */
+  .neon-border-cyber {
+    box-shadow: 0 0 5px var(--color-cyber), inset 0 0 5px var(--color-cyber);
+  }
+
+  /* content layer sitting above canvas and CRT overlays */
+  .content-layer {
+    position: relative;
+    z-index: 10;
+  }
+
+  /* scrollbar styling to match original CRT terminal look */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-terminal);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-neon);
+  }
+
+  /* input selection highlight */
+  input::selection {
+    background: var(--color-neon);
+    color: black;
+  }
+}
+
+/* keyframes for glitch effect (global scope) */
+@keyframes glitch-anim {
+  0% { clip-path: inset(11px 0 58px 0); }
+  20% { clip-path: inset(89px 0 12px 0); }
+  40% { clip-path: inset(33px 0 93px 0); }
+  60% { clip-path: inset(10px 0 78px 0); }
+  80% { clip-path: inset(66px 0 22px 0); }
+  100% { clip-path: inset(5px 0 46px 0); }
+}
+
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(65px 0 9px 0); }
+  20% { clip-path: inset(4px 0 83px 0); }
+  40% { clip-path: inset(88px 0 35px 0); }
+  60% { clip-path: inset(19px 0 6px 0); }
+  80% { clip-path: inset(54px 0 32px 0); }
+  100% { clip-path: inset(2px 0 99px 0); }
+}
+
+/* base styles */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-fira-code), monospace;
+  overflow-x: hidden;
 }
