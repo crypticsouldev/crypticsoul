@@ -14,8 +14,7 @@ export function ProjectsSection() {
       </div>
 
       <div className="space-y-12">
-//project 1
-        <div className="relative group">
+         <div className="relative group">
           <div className="absolute inset-0 bg-cyber/10 transform skew-y-2 group-hover:skew-y-1 transition-all duration-300"></div>
           <div className="relative bg-terminal border border-dim p-6 md:p-8 flex flex-col md:flex-row gap-6">
             <div className="flex-1">
@@ -39,7 +38,6 @@ export function ProjectsSection() {
           </div>
         </div>
 
-        //project 2
         <div className="relative group">
           <div className="absolute inset-0 bg-neon/5 transform -skew-y-1 group-hover:skew-y-0 transition-all duration-300"></div>
           <div className="relative bg-terminal border border-dim p-6 md:p-8 flex flex-col md:flex-row gap-6">

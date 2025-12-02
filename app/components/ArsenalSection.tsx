@@ -14,8 +14,7 @@ export function ArsenalSection() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-     //rust
-        <div className="group relative overflow-hidden border border-dim bg-black/50 p-4 transition-all duration-300 hover:border-orange-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]">
+         <div className="group relative overflow-hidden border border-dim bg-black/50 p-4 transition-all duration-300 hover:border-orange-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(249,115,22,0.6)]">
           <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,_rgba(249,115,22,0.35)_0,_transparent_60%)] transition-opacity duration-500" />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-500/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="relative">
@@ -31,7 +30,6 @@ export function ArsenalSection() {
           </div>
         </div>
 
-     //typescript
         <div className="group relative overflow-hidden border border-dim bg-black/50 p-4 transition-all duration-300 hover:border-blue-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(59,130,246,0.6)]">
           <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.35)_0,_transparent_60%)] transition-opacity duration-500" />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -48,7 +46,6 @@ export function ArsenalSection() {
           </div>
         </div>
 
-     //solana
         <div className="group relative overflow-hidden border border-dim bg-black/50 p-4 transition-all duration-300 hover:border-purple-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(168,85,247,0.65)]">
           <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,_rgba(168,85,247,0.35)_0,_transparent_60%)] transition-opacity duration-500" />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-500/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -65,7 +62,6 @@ export function ArsenalSection() {
           </div>
         </div>
 
-     //node.js
         <div className="group relative overflow-hidden border border-dim bg-black/50 p-4 transition-all duration-300 hover:border-green-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(34,197,94,0.6)]">
           <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,_rgba(34,197,94,0.35)_0,_transparent_60%)] transition-opacity duration-500" />
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-green-500/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
