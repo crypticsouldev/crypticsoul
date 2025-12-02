@@ -12,7 +12,7 @@ export function CommsSection() {
 
         <div className="flex flex-col md:flex-row justify-center gap-4">
           <a
-            href="mailto:contact@crypticsoulak.dev"
+            href="mailto:crypticsoul.ak@gmail.com"
             className="flex items-center justify-center bg-neon text-black font-bold px-8 py-3 hover:bg-white transition-all shadow-[0_0_15px_rgba(0,255,65,0.5)]"
           >
             <Mail className="w-5 h-5 mr-2" /> TRANSMIT_MAIL
